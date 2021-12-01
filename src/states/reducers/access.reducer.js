@@ -1,5 +1,4 @@
 import { ACCESS } from '../action-types'
-console.log('ACCESS -->', ACCESS)
 
 const { LOADING_DATA, LOGIN, LOGOUT } = ACCESS
 
