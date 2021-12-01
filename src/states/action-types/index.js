@@ -1,1 +1,1 @@
-export{ default as ACCESS } from './access.type'
+export { default as ACCESS } from './access.type'
