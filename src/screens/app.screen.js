@@ -16,5 +16,4 @@ const AppScreen = () => {
   )
 }
 
-
 export default AppScreen

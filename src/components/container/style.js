@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     width: Dimensions.get('screen').width,
-    height: Dimensions.get('screen').height,
+    height: Dimensions.get('screen').height
   }
 })
 

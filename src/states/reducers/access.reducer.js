@@ -10,11 +10,11 @@ const initialState = {
 }
 
 const accessReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case LOADING_DATA:
-      return {...state, ...action.payload}
+      return { ...state, ...action.payload }
     case LOGIN:
-      return {...state, ...action.payload}
+      return { ...state, ...action.payload }
     case LOGOUT:
       return initialState
     default:
