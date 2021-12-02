@@ -4,10 +4,11 @@ import { THEME } from '../action-types'
 
 const initialState = {
   defaultTheme: {
-    primaryColor: '#2AB481',
+    primaryColor: '#27a577',
+    primaryColor100: '#18674a',
     secundaryColor: '#FFFFFF',
     backgroundColor: '#F2F2F2',
-    fontColor: '#808080',
+    fontColor: '#4d4d4d',
     yellowColor: 'red',
     blueColor: 'blue',
     greenColor: 'green'
@@ -20,8 +21,6 @@ const initialState = {
     yellowColor: 'red',
     blueColor: 'blue',
     greenColor: 'green'
-  },
-  theme: {
   }
 }
 
@@ -34,7 +33,7 @@ const themeReducer = (state = initialState, action) => {
         ...state,
         theme: state[action.payload]
           ? state[action.payload]
-          : state.theme
+          : state.defaultTheme
       }
     default:
       return state

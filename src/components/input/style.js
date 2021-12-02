@@ -6,8 +6,10 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: 'white',
     borderColor: 'gray',
+    fontSize: 16,
     borderWidth: 1,
-    borderRadius: 5
+    borderRadius: 15,
+    padding: 10,
   }
 })
 
