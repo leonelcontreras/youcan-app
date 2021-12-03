@@ -1,13 +1,14 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './style'
 
-console.log('styles -->', styles)
-
 const Container = ({ children }) => (
-  <View style={styles.container}>
-    {children}
-  </View>
+  <SafeAreaView>
+    <View style={styles.container}>
+      {children}
+    </View>
+  </SafeAreaView>
 )
 
 

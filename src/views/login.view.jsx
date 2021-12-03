@@ -5,7 +5,6 @@ import styles from '../../styles'
 
 const LoginView = ({onPress}) => {
   const { theme } = useTheme()
-  console.log('Theme -->', theme)
 
   const primaryColor = {
     color: theme.primaryColor
