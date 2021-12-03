@@ -10,7 +10,7 @@ const initialState = {
     secundaryColor: '#FFFFFF',
     backgroundColor: '#F2F2F2',
     fontColor: '#4d4d4d',
-    yellowColor: 'red',
+    redColor: '#ff4d4d',
     blueColor: 'blue',
     greenColor: 'green'
   },
@@ -19,7 +19,7 @@ const initialState = {
     secundaryColor: '#8c8c8c',
     backgroundColor: '#333333',
     fontColor: '#808080',
-    yellowColor: 'red',
+    redColor: '#ff4d4d',
     blueColor: 'blue',
     greenColor: 'green'
   }

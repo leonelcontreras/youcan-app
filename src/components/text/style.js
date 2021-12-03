@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   title: {
@@ -7,9 +7,12 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 20
   },
+  error: {
+    fontSize: 15
+  },
   link: {
     fontSize: 20,
-    textDecorationLine: "underline"
+    textDecorationLine: 'underline'
   }
 })
 

@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     display: 'flex',
     justifyContent: 'center',
-    borderRadius: 15,
+    borderRadius: 15
   },
   text: {
     display: 'flex',

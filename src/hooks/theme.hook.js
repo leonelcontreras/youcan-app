@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector, useDispatch } from 'react-redux'
 import { THEME } from '../states/action-types'
 
 const useTheme = () => {

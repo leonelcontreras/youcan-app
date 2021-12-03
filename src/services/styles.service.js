@@ -3,26 +3,35 @@ const StyleService = () => {
     const primaryColor = {
       color: theme.primaryColor
     }
-  
+
     const fontColor = {
       color: theme.fontColor
     }
-  
+
+    const fontColorError = {
+      color: theme.redColor
+    }
+
     const primaryButton = {
       backgroundColor: theme.primaryColor,
-      borderColor: theme.primaryColor100,
+      borderColor: theme.primaryColor100
     }
-  
+
+    const inputError = {
+      borderColor: theme.redColor,
+      color: theme.redColor
+    }
+
     const primaryText = {
       color: theme.secundaryColor
     }
 
-    const marginBotton10 = {
-      marginBottom: 10
+    const marginTop10 = {
+      marginTop: 10
     }
 
-    const marginBotton20 = {
-      marginBottom: 20
+    const marginTop20 = {
+      marginTop: 20
     }
 
     return {
@@ -30,8 +39,10 @@ const StyleService = () => {
       primaryText,
       primaryButton,
       fontColor,
-      marginBotton10,
-      marginBotton20
+      fontColorError,
+      inputError,
+      marginTop10,
+      marginTop20
     }
   }
 

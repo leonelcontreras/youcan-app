@@ -2,14 +2,24 @@ import React from 'react'
 import { Container, Text, Input, Button } from '../components'
 import { useTheme } from '../hooks'
 
-const LoginView = ({onPress}) => {
-  const { 
+const LoginView = ({ form }) => {
+  const {
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleBlur,
+    handleSubmit
+  } = form
+  
+  const {
     primaryColor,
     fontColor,
+    fontColorError,
     primaryButton,
     primaryText,
-    marginBotton10,
-    marginBotton20
+    inputError,
+    marginTop20
   } = useTheme()
 
   return (
@@ -21,37 +31,59 @@ const LoginView = ({onPress}) => {
       />
       <Text
         text='Hoy es un gran día'
-        additionalStyles={[marginBotton20, fontColor]}
-      />
-      <Input 
-        placeholder='Ingresa tu email' 
-        additionalStyles={[marginBotton20, fontColor]}
+        additionalStyles={[marginTop20, fontColor]}
       />
       <Input
-        additionalStyles={[marginBotton20, fontColor]}
-        placeholder='Ingresa tu contraseña' />
+        id='email'
+        name='email'
+        placeholder='Ingresa tu email'
+        value={values.email}
+        onFocus={form.handleBlur('email')}
+        onChangeText={form.handleChange('email')}
+        additionalStyles={[marginTop20, fontColor, errors.email && touched.email ? inputError : null]}
+      />
+      {
+        (errors.email && touched.email) ? 
+          (<Text text={errors.email} type='error' additionalStyles={[fontColorError]} />) 
+          : null
+      }
+      <Input
+        id='password'
+        name='password'
+        placeholder='Ingresa tu contraseña'
+        secureTextEntry
+        value={values.password}
+        onFocus={handleBlur('password')}
+        onChangeText={handleChange('password')}
+        additionalStyles={[marginTop20, fontColor, errors.password && touched.password ? inputError : null]}
+      />
+      {
+        (errors.password && touched.password) ? 
+          (<Text text={errors.password} type='error' additionalStyles={[fontColorError]}/>) 
+          : null
+      }
       <Text
-        additionalStyles={[fontColor]}
+        additionalStyles={[marginTop20, fontColor]}
         text='¿Olvidaste tu contraseña?'
       />
       <Text
         type='link'
         text='Recuperala'
-        additionalStyles={[marginBotton20, primaryColor]}
+        additionalStyles={[primaryColor]}
       />
       <Button 
         title='Login'
-        onPress={() => onPress()}
-        additionalStyles={[marginBotton20]}
+        onPress={handleSubmit}
+        additionalStyles={[marginTop20]}
         buttonStyle={primaryButton}
         textStyle={primaryText}
       />
       <Text
-        additionalStyles={[fontColor]}
+        additionalStyles={[marginTop20, fontColor]}
         text='¿No tienes cuenta?'/>
       <Text 
         type='link'
-        additionalStyles={[marginBotton10, primaryColor]}
+        additionalStyles={[primaryColor]}
         text='Crea una' />
     </Container>
   )
