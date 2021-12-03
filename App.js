@@ -1,8 +1,10 @@
 import React from 'react'
-import { NavigationProvider, StateProvider } from './src/providers'
+import { NavigationProvider, StateProvider, SecureAreaProvider } from './src/providers'
 
 export default () => (
   <StateProvider>
-    <NavigationProvider />
+    <SecureAreaProvider>
+      <NavigationProvider />
+    </SecureAreaProvider>
   </StateProvider>
 )

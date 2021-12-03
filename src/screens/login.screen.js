@@ -1,23 +1,21 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useForm } from '../hooks'
+import { loginSchema } from '../schemas'
 import { LoginView } from '../views'
-import { ACCESS } from '../states/action-types'
 
 const LoginScreen = () => {
-  const dispatch = useDispatch()
+  const handleOnSubmit = values => console.log('values --->', values)
 
-  const login = () => dispatch({
-    type: ACCESS.LOGIN,
-    payload: {
-      loading: false,
-      isSigned: true,
-      token: 'Bearer token'
-    }
+  const form = useForm({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    validationSchema: loginSchema,
+    onSubmit: handleOnSubmit
   })
 
-  return (
-   <LoginView onSubmit={login}/>
-  )
+  return <LoginView form={form}/>
 }
 
 export default LoginScreen
