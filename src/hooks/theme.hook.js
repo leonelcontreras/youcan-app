@@ -9,7 +9,7 @@ const useTheme = () => {
   if (!theme || !theme.primaryColor) dispatch({ type: SET_THEME, payload: 'defaultTheme' })
 
   return {
-    theme
+    ...theme
   }
 }
 

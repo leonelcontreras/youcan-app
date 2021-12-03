@@ -1,6 +1,7 @@
 import { persistReducer } from 'redux-persist'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { THEME } from '../action-types'
+import { StyleService } from '../../services'
 
 const initialState = {
   defaultTheme: {
@@ -25,15 +26,15 @@ const initialState = {
 }
 
 const { SET_THEME } = THEME
-
+const styleService = StyleService()
 const themeReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_THEME:
       return {
         ...state,
         theme: state[action.payload]
-          ? state[action.payload]
-          : state.defaultTheme
+          ? styleService.getStyles(state[action.payload])
+          : styleService.getStyles(state.defaultTheme)
       }
     default:
       return state
