@@ -1,8 +1,13 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Container, Text, Input, Button } from '../components'
 import { useTheme } from '../hooks'
 
 const LoginView = ({ form }) => {
+  const { t } = useTranslation()
+
+  console.log('t --->', t('name'))
+
   const {
     values,
     touched,
