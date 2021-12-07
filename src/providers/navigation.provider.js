@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import {
 //  SplashScreen,
   LoginScreen,
+  SignupScreen,
   AppScreen,
   GoalScreen,
   StatsScreen
@@ -17,8 +18,6 @@ const { Navigator, Screen } = createNativeStackNavigator()
 const NavigationProvider = () => {
   // const dispatch = useDispatch()
   const { /* loading, */ isSigned } = useSelector(state => state.accessReducer)
-  const theme = useSelector(state => state.themeReducer)
-  console.log('theme -->', theme)
   // const authService = AuthenticationService()
   // const validToken = false
 
@@ -26,7 +25,7 @@ const NavigationProvider = () => {
 
   return (
     <NavigationContainer>
-      <Navigator initialRouteName='App'>
+      <Navigator initialRouteName='Signup'>
         {
           isSigned
             ? (
@@ -37,7 +36,10 @@ const NavigationProvider = () => {
             </>
               )
             : (
-            <Screen name='Login' component={LoginScreen} options={{ headerShown: false }}/>
+              <>
+               <Screen name='Login' component={LoginScreen} options={{ headerShown: false }}/>
+               <Screen name='Signup' component={SignupScreen} options={{ headerShown: false }} />
+              </>
               )
         }
       </Navigator>

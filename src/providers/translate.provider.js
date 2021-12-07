@@ -5,17 +5,16 @@ import * as en from '../../assets/locales/en.json'
 
 const LocaleProvider = () => {
   return i18n
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: {
-        translation: en
-      }
-    },
-    fallbackLng: 'en',
-    lng: localization.locale
-  })
+    .use(initReactI18next)
+    .init({
+      resources: {
+        en: {
+          translation: en
+        }
+      },
+      fallbackLng: 'en',
+      lng: localization.locale
+    })
 }
 
 export default LocaleProvider
-
