@@ -6,6 +6,13 @@ const loginSchema = Yup.object().shape({
   password: Yup.string().min(8, i18next.t('validator.pass-invalid')).required(i18next.t('validator.pass-required'))
 })
 
+const signupSchema = Yup.object().shape({
+  email: Yup.string().email(i18next.t('validator.email-invalid')).required(i18next.t('validator.email-required')),
+  password: Yup.string().min(8, i18next.t('validator.pass-invalid')).required(i18next.t('validator.pass-required')),
+  repeatPassword: Yup.string().min(8, i18next.t('validator.pass-invalid')).required(i18next.t('validator.pass-required'))
+})
+
 export {
-  loginSchema
+  loginSchema,
+  signupSchema
 }

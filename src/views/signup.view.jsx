@@ -1,19 +1,9 @@
 import React from 'react'
-import { Container, Text, Input, Button } from '../components'
-import { useTheme, useTranslate } from '../hooks'
+import { Container, Input, Button, Text } from '../components'
+import { useTranslate, useTheme } from '../hooks'
 
-const LoginView = ({ form, onSignup }) => {
+const SignUpView = ({ form, onNavigateLogin }) => {
   const translate = useTranslate()
-
-  const {
-    values,
-    touched,
-    errors,
-    handleChange,
-    handleBlur,
-    handleSubmit
-  } = form
-  
   const {
     primaryColor,
     fontColor,
@@ -24,15 +14,24 @@ const LoginView = ({ form, onSignup }) => {
     marginTop20
   } = useTheme()
 
+  const {
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleBlur,
+    handleSubmit
+  } = form
+
   return (
     <Container>
       <Text
         type='title'
-        text={translate('login.title')}
+        text={translate('signup.title')}
         additionalStyles={[fontColor]}
       />
       <Text
-        text={translate('login.subtitle')}
+        text={translate('signup.subtitle')}
         additionalStyles={[marginTop20, fontColor]}
       />
       <Input
@@ -64,33 +63,40 @@ const LoginView = ({ form, onSignup }) => {
           (<Text text={errors.password} type='error' additionalStyles={[fontColorError]}/>) 
           : null
       }
-      <Text
-        additionalStyles={[marginTop20, fontColor]}
-        text={translate('login.forget-pass')}
+      <Input
+        id='repeatPassword'
+        name='repeatPassword'
+        placeholder={translate('signup.repeat-password')}
+        secureTextEntry
+        value={values.repeatPassword}
+        onFocus={handleBlur('repeatPassword')}
+        onChangeText={handleChange('repeatPassword')}
+        additionalStyles={[marginTop20, fontColor, errors.repeatPassword && touched.repeatPassword ? inputError : null]}
       />
-      <Text
-        type='link'
-        text={translate('login.forget-pass-action')}
-        additionalStyles={[primaryColor]}
-      />
+      {
+        (errors.repeatPassword && touched.repeatPassword) ? 
+          (<Text text={errors.repeatPassword} type='error' additionalStyles={[fontColorError]}/>) 
+          : null
+      }
       <Button 
-        title={translate('login.action')}
+        title={translate('signup.action')}
         onPress={handleSubmit}
         additionalStyles={[marginTop20]}
         buttonStyle={primaryButton}
         textStyle={primaryText}
       />
-      <Text
+      <Text 
+        text={translate('signup.already-account')}
         additionalStyles={[marginTop20, fontColor]}
-        text={translate('login.not-account')}/>
+      />
       <Text 
         type='link'
         additionalStyles={[primaryColor]}
-        text={translate('login.not-account-action')}
-        onPress={() => onSignup()}  
+        text={translate('signup.login')}
+        onPress={() => onNavigateLogin()}
       />
-    </Container>
+    </Container>    
   )
 }
 
-export default LoginView
+export default SignUpView
