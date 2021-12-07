@@ -1,12 +1,9 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { Container, Text, Input, Button } from '../components'
-import { useTheme } from '../hooks'
+import { useTheme, useTranslate } from '../hooks'
 
 const LoginView = ({ form }) => {
-  const { t } = useTranslation()
-
-  console.log('t --->', t('name'))
+  const translate = useTranslate()
 
   const {
     values,
@@ -31,17 +28,17 @@ const LoginView = ({ form }) => {
     <Container>
       <Text
         type='title'
-        text='Bienvenido!'
+        text={translate('login.title')}
         additionalStyles={[fontColor]}
       />
       <Text
-        text='Hoy es un gran día'
+        text={translate('login.subtitle')}
         additionalStyles={[marginTop20, fontColor]}
       />
       <Input
         id='email'
         name='email'
-        placeholder='Ingresa tu email'
+        placeholder={translate('login.email-placeholder')}
         value={values.email}
         onFocus={form.handleBlur('email')}
         onChangeText={form.handleChange('email')}
@@ -55,7 +52,7 @@ const LoginView = ({ form }) => {
       <Input
         id='password'
         name='password'
-        placeholder='Ingresa tu contraseña'
+        placeholder={translate('login.pass-placeholder')}
         secureTextEntry
         value={values.password}
         onFocus={handleBlur('password')}
@@ -69,15 +66,15 @@ const LoginView = ({ form }) => {
       }
       <Text
         additionalStyles={[marginTop20, fontColor]}
-        text='¿Olvidaste tu contraseña?'
+        text={translate('login.forget-pass')}
       />
       <Text
         type='link'
-        text='Recuperala'
+        text={translate('login.forget-pass-action')}
         additionalStyles={[primaryColor]}
       />
       <Button 
-        title='Login'
+        title={translate('login.action')}
         onPress={handleSubmit}
         additionalStyles={[marginTop20]}
         buttonStyle={primaryButton}
@@ -85,11 +82,11 @@ const LoginView = ({ form }) => {
       />
       <Text
         additionalStyles={[marginTop20, fontColor]}
-        text='¿No tienes cuenta?'/>
+        text={translate('login.not-account')}/>
       <Text 
         type='link'
         additionalStyles={[primaryColor]}
-        text='Crea una' />
+        text={translate('login.not-account-action')} />
     </Container>
   )
 }

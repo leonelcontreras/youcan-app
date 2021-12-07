@@ -1,3 +1,15 @@
 {
-  "name": "MY NAME"
+  "login.title": "Welcome !",
+  "login.subtitle": "Today it´s a great day",
+  "login.email-placeholder": "Type your email",
+  "login.pass-placeholder": "Type your password",
+  "login.forget-pass": "Forget your password?",
+  "login.forget-pass-action":"Get it back!",
+  "login.action": "Login",
+  "login.not-account": "You don't have an account?",
+  "login.not-account-action": "Create it!",
+  "validator.email-required": "Type your email!",
+  "validator.pass-required": "Type your password!",
+  "validator.email-invalid": "The email isn´t valid",
+  "validator.pass-invalid": "The password should have 8 characters"
 }

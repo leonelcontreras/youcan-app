@@ -1,8 +1,9 @@
 import * as Yup from 'yup'
+import i18next from 'i18next'
 
 const loginSchema = Yup.object().shape({
-  email: Yup.string().email('El email que escribiste no es válido').required('Ingresa tu email'),
-  password: Yup.string().min(8, 'Debe de tener al menos 8 caracteres').required('Ingresa tu contraseña')
+  email: Yup.string().email(i18next.t('validator.email-invalid')).required(i18next.t('validator.email-required')),
+  password: Yup.string().min(8, i18next.t('validator.pass-invalid')).required(i18next.t('validator.pass-required'))
 })
 
 export {
