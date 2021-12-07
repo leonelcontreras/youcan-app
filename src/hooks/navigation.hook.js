@@ -1,7 +1,7 @@
-import { useNavigation } from "@react-navigation/core";
+import { useNavigation } from '@react-navigation/core'
 
 const useNavigate = () => {
-  const { navigate  } = useNavigation()
+  const { navigate } = useNavigation()
 
   return {
     navigate

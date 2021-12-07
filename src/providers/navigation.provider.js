@@ -38,7 +38,7 @@ const NavigationProvider = () => {
             : (
               <>
                <Screen name='Login' component={LoginScreen} options={{ headerShown: false }}/>
-               <Screen name='Signup' component={SignupScreen} options={{headerShown: false}} />
+               <Screen name='Signup' component={SignupScreen} options={{ headerShown: false }} />
               </>
               )
         }

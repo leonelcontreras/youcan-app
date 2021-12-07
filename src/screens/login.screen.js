@@ -5,7 +5,7 @@ import { LoginView } from '../views'
 
 const LoginScreen = () => {
   const { navigate } = useNavigate()
-  
+
   const handleOnSubmit = values => console.log('values --->', values)
   const onSignup = () => navigate('Signup')
 
