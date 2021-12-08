@@ -1,10 +1,11 @@
 import { useNavigation } from '@react-navigation/core'
 
 const useNavigate = () => {
-  const { navigate } = useNavigation()
+  const { navigate, goBack } = useNavigation()
 
   return {
-    navigate
+    navigate,
+    goBack
   }
 }
 

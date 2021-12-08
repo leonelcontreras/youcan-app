@@ -8,6 +8,7 @@ import {
 //  SplashScreen,
   LoginScreen,
   SignupScreen,
+  RecoverPasswordScreen,
   AppScreen,
   GoalScreen,
   StatsScreen
@@ -39,6 +40,7 @@ const NavigationProvider = () => {
               <>
                <Screen name='Login' component={LoginScreen} options={{ headerShown: false }}/>
                <Screen name='Signup' component={SignupScreen} options={{ headerShown: false }} />
+               <Screen name='Recover' component={RecoverPasswordScreen} options={{ headerShown: false }} />
               </>
               )
         }

@@ -1,1 +1,1 @@
-export { loginSchema, signupSchema } from './access.schema'
+export { loginSchema, signupSchema, recoverySchema } from './access.schema'

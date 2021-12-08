@@ -7,7 +7,7 @@ const LoginScreen = () => {
   const { navigate } = useNavigate()
 
   const handleOnSubmit = values => console.log('values --->', values)
-  const onSignup = () => navigate('Signup')
+  const onNavigate = (screen) => navigate(screen)
 
   const form = useForm({
     initialValues: {
@@ -18,7 +18,7 @@ const LoginScreen = () => {
     onSubmit: handleOnSubmit
   })
 
-  return <LoginView form={form} onSignup={onSignup} />
+  return <LoginView form={form} onNavigate={onNavigate} />
 }
 
 export default LoginScreen

@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Text, Input, Button } from '../components'
 import { useTheme, useTranslate } from '../hooks'
 
-const LoginView = ({ form, onSignup }) => {
+const LoginView = ({ form, onNavigate }) => {
   const translate = useTranslate()
 
   const {
@@ -72,6 +72,7 @@ const LoginView = ({ form, onSignup }) => {
         type='link'
         text={translate('login.forget-pass-action')}
         additionalStyles={[primaryColor]}
+        onPress={() => onNavigate('Recover')}
       />
       <Button 
         title={translate('login.action')}
@@ -87,7 +88,7 @@ const LoginView = ({ form, onSignup }) => {
         type='link'
         additionalStyles={[primaryColor]}
         text={translate('login.not-account-action')}
-        onPress={() => onSignup()}  
+        onPress={() => onNavigate('Signup')}  
       />
     </Container>
   )
