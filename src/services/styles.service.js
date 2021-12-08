@@ -17,6 +17,11 @@ const StyleService = () => {
       borderColor: theme.primaryColor100
     }
 
+    const secoundaryButton = {
+      backgroundColor: theme.secundaryColor,
+      borderColor: theme.primaryColor100
+    }
+
     const inputError = {
       borderColor: theme.redColor,
       color: theme.redColor
@@ -38,6 +43,7 @@ const StyleService = () => {
       primaryColor,
       primaryText,
       primaryButton,
+      secoundaryButton,
       fontColor,
       fontColorError,
       inputError,

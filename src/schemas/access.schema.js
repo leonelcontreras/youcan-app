@@ -12,7 +12,12 @@ const signupSchema = Yup.object().shape({
   repeatPassword: Yup.string().min(8, i18next.t('validator.pass-invalid')).required(i18next.t('validator.pass-required'))
 })
 
+const recoverySchema = Yup.object().shape({
+  email: Yup.string().email(i18next.t('validator.email.invalid')).required(i18next.t('validator.email-required'))
+})
+
 export {
   loginSchema,
-  signupSchema
+  signupSchema,
+  recoverySchema
 }
