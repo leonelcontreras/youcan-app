@@ -1,54 +1,60 @@
 const StyleService = () => {
   const getStyles = (theme) => {
-    const primaryColor = {
+    const primaryColorClass = {
       color: theme.primaryColor
     }
 
-    const fontColor = {
+    const lightPurpleColorClass = {
+      color: theme.lightPurple
+    }
+
+    const fontColorClass = {
       color: theme.fontColor
     }
 
-    const fontColorError = {
-      color: theme.redColor
+    const fontColorErrorClass = {
+      color: theme.red
     }
 
-    const primaryButton = {
-      backgroundColor: theme.primaryColor,
-      borderColor: theme.primaryColor100
+    const primaryClass = {
+      color: theme.primaryColor,
+      borderColor: theme.primaryColor
     }
 
-    const secoundaryButton = {
-      backgroundColor: theme.secundaryColor,
-      borderColor: theme.primaryColor100
+    const secoundaryClass = {
+      color: theme.secundaryColor,
+      borderColor: theme.secundaryColor
     }
 
-    const inputError = {
-      borderColor: theme.redColor,
-      color: theme.redColor
+    const inputErrorClass = {
+      borderColor: theme.red,
+      color: theme.red
     }
 
-    const primaryText = {
+    const primaryTextClass = {
       color: theme.secundaryColor
     }
 
-    const marginTop10 = {
+    const marginTop10Class = {
       marginTop: 10
     }
 
-    const marginTop20 = {
+    const marginTop20Class = {
       marginTop: 20
     }
 
     return {
-      primaryColor,
-      primaryText,
-      primaryButton,
-      secoundaryButton,
-      fontColor,
-      fontColorError,
-      inputError,
-      marginTop10,
-      marginTop20
+      ...theme,
+      primaryColorClass,
+      lightPurpleColorClass,
+      primaryTextClass,
+      primaryClass,
+      secoundaryClass,
+      fontColorClass,
+      fontColorErrorClass,
+      inputErrorClass,
+      marginTop10Class,
+      marginTop20Class
     }
   }
 

@@ -5,14 +5,19 @@ import { Text, Input, Button, Container } from '../components'
 const RecoverPasswordView = ({ form, onBack }) => {
   const translate = useTranslate()
   const {
+    fontColorErrorClass,
+    primaryClass,
+    primaryTextClass,
+    secoundaryButtonClass,
+    inputErrorClass,
+    marginTop20Class,
     primaryColor,
-    fontColor,
-    fontColorError,
-    primaryButton,
-    secoundaryButton,
-    primaryText,
-    inputError,
-    marginTop20
+    secundaryColor,
+    pink,
+    darkPink,
+    purple,
+    darkPurple,
+    lightPurple
   } = useTheme()
 
   const {
@@ -26,15 +31,6 @@ const RecoverPasswordView = ({ form, onBack }) => {
 
   return (
     <Container>
-      <Text
-        type='title'
-        text={translate('recovery.title')}
-        additionalStyles={[fontColor]}
-      />
-      <Text
-        text={translate('recovery.subtitle')}
-        additionalStyles={[marginTop20, fontColor]}
-      />
       <Input
         id='email'
         name='email'
@@ -42,26 +38,28 @@ const RecoverPasswordView = ({ form, onBack }) => {
         value={values.email}
         onFocus={handleBlur('email')}
         onChangeText={handleChange('email')}
-        additionalStyles={[marginTop20, fontColor, errors.email && touched.email ? inputError : null]}
+        additionalStyles={[marginTop20Class, primaryClass, errors.email && touched.email ? inputErrorClass : null]}
       />
       {
         (errors.email && touched.email) ?
-          (<Text text={errors.email} type='error' additionalStyles={[fontColorError]} />)
+          (<Text text={errors.email} type='error' additionalStyles={[fontColorErrorClass]} />)
           : null
       }
       <Button 
         title={translate('recovery.action')}
+        colors={[purple, primaryColor]}
         onPress={handleSubmit}
-        additionalStyles={[marginTop20]}
-        buttonStyle={primaryButton}
-        textStyle={primaryText}
+        additionalStyles={[marginTop20Class]}
+        buttonStyle={primaryClass}
+        textStyle={primaryTextClass}
       />
       <Button 
         title={translate('recovery.secondary-action')}
+        colors={[purple, darkPink]}
         onPress={onBack}
-        additionalStyles={[marginTop20]}
-        buttonStyle={secoundaryButton}
-        textStyle={primaryColor}
+        additionalStyles={[marginTop20Class]}
+        buttonStyle={secoundaryButtonClass}
+        textStyle={primaryTextClass}
       />
     </Container>
   )

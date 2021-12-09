@@ -1,18 +1,28 @@
 import React from 'react'
-import { Container, Input, Button, Text } from '../components'
+import { Container, Input, Button, Text, Gradient } from '../components'
 import { useTranslate, useTheme } from '../hooks'
+import { Image } from 'react-native'
+import icon from '../../assets/logo3.webp'
 
 const SignUpView = ({ form, onNavigateLogin }) => {
   const translate = useTranslate()
   const {
+    primaryColorClass,
+    lightPurpleColorClass,
+    fontColorErrorClass,
+    primaryClass,
+    primaryTextClass,
+    inputErrorClass,
+    marginTop20Class,
     primaryColor,
-    fontColor,
-    fontColorError,
-    primaryButton,
-    primaryText,
-    inputError,
-    marginTop20
+    pink,
+    darkPink,
+    purple,
+    darkPurple,
+    lightPurple
   } = useTheme()
+
+console.log('lightPurpleColorClass -->', lightPurpleColorClass)
 
   const {
     values,
@@ -23,16 +33,50 @@ const SignUpView = ({ form, onNavigateLogin }) => {
     handleSubmit
   } = form
 
+  const gradientClass = {
+    position: 'absolute',
+    borderRadius: 300,
+    height: 600,
+    width: 600,
+    top: -450,
+    right: -180
+  }
+
   return (
     <Container>
-      <Text
-        type='title'
-        text={translate('signup.title')}
-        additionalStyles={[fontColor]}
+      <Gradient
+        locations={[0.5, 0.9]}
+        colors={[darkPink, pink]}
+        style={{
+          ...gradientClass,
+          top: -450,
+          right: -180
+        }}
       />
-      <Text
-        text={translate('signup.subtitle')}
-        additionalStyles={[marginTop20, fontColor]}
+      <Gradient
+        locations={[0.6, 0.9]}
+        colors={[lightPurple, darkPink]}
+        style={{
+          ...gradientClass,
+          top: -420,
+          left: -180,
+          opacity: 0.6,
+        }}
+      />
+      <Gradient
+        locations={[0.5, 0.8, 1]}
+        colors={[darkPink, darkPurple, primaryColor]}
+        style={{
+          ...gradientClass,
+          top: -460,
+          left: -180,
+        }}
+      />
+      <Image
+        style={[marginTop20Class, {
+          marginBottom: 50
+        }]}
+        source={icon}
       />
       <Input
         id='email'
@@ -41,11 +85,11 @@ const SignUpView = ({ form, onNavigateLogin }) => {
         value={values.email}
         onFocus={form.handleBlur('email')}
         onChangeText={form.handleChange('email')}
-        additionalStyles={[marginTop20, fontColor, errors.email && touched.email ? inputError : null]}
+        additionalStyles={[marginTop20Class, primaryClass, errors.email && touched.email ? inputErrorClass : null]}
       />
       {
-        (errors.email && touched.email) ? 
-          (<Text text={errors.email} type='error' additionalStyles={[fontColorError]} />) 
+        (errors.email && touched.email) ?
+          (<Text text={errors.email} type='error' additionalStyles={[fontColorErrorClass]} />)
           : null
       }
       <Input
@@ -56,11 +100,11 @@ const SignUpView = ({ form, onNavigateLogin }) => {
         value={values.password}
         onFocus={handleBlur('password')}
         onChangeText={handleChange('password')}
-        additionalStyles={[marginTop20, fontColor, errors.password && touched.password ? inputError : null]}
+        additionalStyles={[marginTop20Class, primaryClass, errors.password && touched.password ? inputErrorClass : null]}
       />
       {
-        (errors.password && touched.password) ? 
-          (<Text text={errors.password} type='error' additionalStyles={[fontColorError]}/>) 
+        (errors.password && touched.password) ?
+          (<Text text={errors.password} type='error' additionalStyles={[fontColorErrorClass]} />)
           : null
       }
       <Input
@@ -71,31 +115,32 @@ const SignUpView = ({ form, onNavigateLogin }) => {
         value={values.repeatPassword}
         onFocus={handleBlur('repeatPassword')}
         onChangeText={handleChange('repeatPassword')}
-        additionalStyles={[marginTop20, fontColor, errors.repeatPassword && touched.repeatPassword ? inputError : null]}
+        additionalStyles={[marginTop20Class, primaryClass, errors.repeatPassword && touched.repeatPassword ? inputErrorClass : null]}
       />
       {
-        (errors.repeatPassword && touched.repeatPassword) ? 
-          (<Text text={errors.repeatPassword} type='error' additionalStyles={[fontColorError]}/>) 
+        (errors.repeatPassword && touched.repeatPassword) ?
+          (<Text text={errors.repeatPassword} type='error' additionalStyles={[fontColorErrorClass]} />)
           : null
       }
-      <Button 
+      <Button
         title={translate('signup.action')}
         onPress={handleSubmit}
-        additionalStyles={[marginTop20]}
-        buttonStyle={primaryButton}
-        textStyle={primaryText}
+        additionalStyles={[marginTop20Class]}
+        buttonStyle={primaryClass}
+        textStyle={primaryTextClass}
+        colors={[purple, primaryColor]}
       />
-      <Text 
+      <Text
         text={translate('signup.already-account')}
-        additionalStyles={[marginTop20, fontColor]}
+        additionalStyles={[marginTop20Class, primaryColorClass]}
       />
-      <Text 
+      <Text
         type='link'
-        additionalStyles={[primaryColor]}
+        additionalStyles={[lightPurpleColorClass]}
         text={translate('signup.login')}
         onPress={() => onNavigateLogin()}
       />
-    </Container>    
+    </Container>
   )
 }
 
