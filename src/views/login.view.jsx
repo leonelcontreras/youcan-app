@@ -1,6 +1,7 @@
 import React from 'react'
-import { Container, Text, Input, Button } from '../components'
+import { Container, Text, Input, Button, Gradient, Image } from '../components'
 import { useTheme, useTranslate } from '../hooks'
+import icon from '../../assets/logo3.webp'
 
 const LoginView = ({ form, onNavigate }) => {
   const translate = useTranslate()
@@ -15,25 +16,51 @@ const LoginView = ({ form, onNavigate }) => {
   } = form
   
   const {
+    fontColorErrorClass,
+    lightPurpleColorClass,
+    primaryClass,
+    primaryTextClass,
+    inputErrorClass,
+    marginTop20Class,
     primaryColor,
-    fontColor,
-    fontColorError,
-    primaryButton,
-    primaryText,
-    inputError,
-    marginTop20
+    pink,
+    darkPink,
+    purple,
+    lightPurple
   } = useTheme()
+
+  const gradientClass = {
+    position: 'absolute',
+    borderRadius: 300,
+    height: 600,
+    width: 600,
+  }
 
   return (
     <Container>
-      <Text
-        type='title'
-        text={translate('login.title')}
-        additionalStyles={[fontColor]}
+      <Gradient
+        locations={[0.5, 0.9]}
+        colors={[darkPink, pink]}
+        style={{
+          ...gradientClass,
+          top: -420,
+          right: -180
+        }}
       />
-      <Text
-        text={translate('login.subtitle')}
-        additionalStyles={[marginTop20, fontColor]}
+      <Gradient
+        locations={[0.1, 0.5]}
+        colors={[lightPurple, primaryColor]}
+        style={{
+          ...gradientClass,
+          bottom: -380,
+          left: -160
+        }}
+      />
+      <Image
+        style={[marginTop20Class, {
+          marginBottom: 50
+        }]}
+        source={icon}
       />
       <Input
         id='email'
@@ -42,11 +69,11 @@ const LoginView = ({ form, onNavigate }) => {
         value={values.email}
         onFocus={form.handleBlur('email')}
         onChangeText={form.handleChange('email')}
-        additionalStyles={[marginTop20, fontColor, errors.email && touched.email ? inputError : null]}
+        additionalStyles={[marginTop20Class, primaryClass, errors.email && touched.email ? inputErrorClass : null]}
       />
       {
         (errors.email && touched.email) ? 
-          (<Text text={errors.email} type='error' additionalStyles={[fontColorError]} />) 
+          (<Text text={errors.email} type='error' additionalStyles={[fontColorErrorClass]} />) 
           : null
       }
       <Input
@@ -57,36 +84,37 @@ const LoginView = ({ form, onNavigate }) => {
         value={values.password}
         onFocus={handleBlur('password')}
         onChangeText={handleChange('password')}
-        additionalStyles={[marginTop20, fontColor, errors.password && touched.password ? inputError : null]}
+        additionalStyles={[marginTop20Class, primaryClass, errors.password && touched.password ? inputErrorClass : null]}
       />
       {
         (errors.password && touched.password) ? 
-          (<Text text={errors.password} type='error' additionalStyles={[fontColorError]}/>) 
+          (<Text text={errors.password} type='error' additionalStyles={[fontColorErrorClass]}/>) 
           : null
       }
       <Text
-        additionalStyles={[marginTop20, fontColor]}
+        additionalStyles={[marginTop20Class, primaryClass]}
         text={translate('login.forget-pass')}
       />
       <Text
         type='link'
         text={translate('login.forget-pass-action')}
-        additionalStyles={[primaryColor]}
+        additionalStyles={[lightPurpleColorClass]}
         onPress={() => onNavigate('Recover')}
       />
-      <Button 
-        title={translate('login.action')}
+      <Button
+        title={translate('signup.action')}
         onPress={handleSubmit}
-        additionalStyles={[marginTop20]}
-        buttonStyle={primaryButton}
-        textStyle={primaryText}
+        additionalStyles={[marginTop20Class]}
+        buttonStyle={primaryClass}
+        textStyle={primaryTextClass}
+        colors={[purple, primaryColor]}
       />
       <Text
-        additionalStyles={[marginTop20, fontColor]}
+        additionalStyles={[marginTop20Class, primaryClass]}
         text={translate('login.not-account')}/>
       <Text 
         type='link'
-        additionalStyles={[primaryColor]}
+        additionalStyles={[lightPurpleColorClass]}
         text={translate('login.not-account-action')}
         onPress={() => onNavigate('Signup')}  
       />

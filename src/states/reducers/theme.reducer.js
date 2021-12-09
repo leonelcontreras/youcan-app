@@ -5,23 +5,33 @@ import { StyleService } from '../../services'
 
 const initialState = {
   defaultTheme: {
-    primaryColor: '#27a577',
-    primaryColor100: '#18674a',
+    primaryColor: '#2575fc',
+    primaryColor100: '#023997',
     secundaryColor: '#FFFFFF',
-    backgroundColor: '#F2F2F2',
-    fontColor: '#4d4d4d',
-    redColor: '#ff4d4d',
-    blueColor: 'blue',
-    greenColor: 'green'
+    backgroundColor: '#f4f8ff',
+    fontColor: '#023997',
+    red: '#ff4d4d',
+    purple: '#6a11cb',
+    darkPurple: '#751aff',
+    lightPurple: '#b071f4',
+    pink: '#e699ff',
+    darkPink: '#cc00ff',
+    blue: '#023997',
+    green: '#2AB481'
   },
   darkTheme: {
-    primaryColor: '#2AB481',
-    secundaryColor: '#8c8c8c',
+    primaryColor: '#2575fc',
+    primaryColor100: '#023997',
+    secundaryColor: '#FFFFFF',
     backgroundColor: '#333333',
-    fontColor: '#808080',
-    redColor: '#ff4d4d',
-    blueColor: 'blue',
-    greenColor: 'green'
+    fontColor: '#023997',
+    red: '#ff4d4d',
+    purple: '#6a11cb',
+    lightPurple: '#751aff',
+    pink: '#e699ff',
+    darkPink: '#cc00ff',
+    blue: '#023997',
+    green: '#2AB481'
   }
 }
 

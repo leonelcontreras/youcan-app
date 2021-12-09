@@ -26,7 +26,7 @@ const NavigationProvider = () => {
 
   return (
     <NavigationContainer>
-      <Navigator initialRouteName='Signup'>
+      <Navigator initialRouteName='Login'>
         {
           isSigned
             ? (

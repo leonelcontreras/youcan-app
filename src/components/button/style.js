@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   button: {
     width: '100%',
     height: 50,
-    borderWidth: 1,
     display: 'flex',
     justifyContent: 'center',
     borderRadius: 15
@@ -12,7 +11,8 @@ const styles = StyleSheet.create({
   text: {
     display: 'flex',
     textAlign: 'center',
-    fontSize: 20
+    fontSize: 24,
+    fontWeight: '600'
   }
 })
 
