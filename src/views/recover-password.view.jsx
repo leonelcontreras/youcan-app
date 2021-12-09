@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTheme, useTranslate } from '../hooks'
-import { Text, Input, Button, Container } from '../components'
+import { Text, Input, Button, Container, Gradient, Image } from '../components'
+import icon from '../../assets/logo3.webp'
 
 const RecoverPasswordView = ({ form, onBack }) => {
   const translate = useTranslate()
@@ -12,12 +13,8 @@ const RecoverPasswordView = ({ form, onBack }) => {
     inputErrorClass,
     marginTop20Class,
     primaryColor,
-    secundaryColor,
-    pink,
     darkPink,
     purple,
-    darkPurple,
-    lightPurple
   } = useTheme()
 
   const {
@@ -29,8 +26,41 @@ const RecoverPasswordView = ({ form, onBack }) => {
     handleSubmit
   } = form
 
+  const gradientClass = {
+    position: 'absolute',
+    borderRadius: 300,
+    height: 600,
+    width: 600,
+  }
+
   return (
     <Container>
+      <Gradient
+        locations={[0.5, 0.9]}
+        colors={[darkPink, primaryColor]}
+        style={{
+          ...gradientClass,
+          top: -440,
+          left: -20,
+          borderRadius: 200
+        }}
+      />
+      <Gradient
+        locations={[0, 0.3]}
+        colors={[darkPink, primaryColor]}
+        style={{
+          ...gradientClass,
+          bottom: -440,
+          right: -20,
+          borderRadius: 200
+        }}
+      />
+      <Image
+        style={[marginTop20Class, {
+          marginBottom: 50
+        }]}
+        source={icon}
+      />
       <Input
         id='email'
         name='email'

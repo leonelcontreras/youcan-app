@@ -1,7 +1,6 @@
 import React from 'react'
-import { Container, Input, Button, Text, Gradient } from '../components'
+import { Container, Input, Button, Text, Gradient, Image } from '../components'
 import { useTranslate, useTheme } from '../hooks'
-import { Image } from 'react-native'
 import icon from '../../assets/logo3.webp'
 
 const SignUpView = ({ form, onNavigateLogin }) => {
@@ -21,8 +20,6 @@ const SignUpView = ({ form, onNavigateLogin }) => {
     darkPurple,
     lightPurple
   } = useTheme()
-
-console.log('lightPurpleColorClass -->', lightPurpleColorClass)
 
   const {
     values,

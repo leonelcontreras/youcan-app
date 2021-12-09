@@ -1,6 +1,7 @@
 import React from 'react'
-import { Container, Text, Input, Button } from '../components'
+import { Container, Text, Input, Button, Gradient, Image } from '../components'
 import { useTheme, useTranslate } from '../hooks'
+import icon from '../../assets/logo3.webp'
 
 const LoginView = ({ form, onNavigate }) => {
   const translate = useTranslate()
@@ -25,12 +26,42 @@ const LoginView = ({ form, onNavigate }) => {
     pink,
     darkPink,
     purple,
-    darkPurple,
     lightPurple
   } = useTheme()
 
+  const gradientClass = {
+    position: 'absolute',
+    borderRadius: 300,
+    height: 600,
+    width: 600,
+  }
+
   return (
     <Container>
+      <Gradient
+        locations={[0.5, 0.9]}
+        colors={[darkPink, pink]}
+        style={{
+          ...gradientClass,
+          top: -420,
+          right: -180
+        }}
+      />
+      <Gradient
+        locations={[0.1, 0.5]}
+        colors={[lightPurple, primaryColor]}
+        style={{
+          ...gradientClass,
+          bottom: -380,
+          left: -160
+        }}
+      />
+      <Image
+        style={[marginTop20Class, {
+          marginBottom: 50
+        }]}
+        source={icon}
+      />
       <Input
         id='email'
         name='email'
