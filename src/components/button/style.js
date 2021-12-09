@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     height: 50,
     display: 'flex',
     justifyContent: 'center',
-    borderRadius: 15,
+    borderRadius: 15
   },
   text: {
     display: 'flex',

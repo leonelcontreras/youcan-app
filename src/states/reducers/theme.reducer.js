@@ -17,7 +17,7 @@ const initialState = {
     pink: '#e699ff',
     darkPink: '#cc00ff',
     blue: '#023997',
-    green: '#2AB481',
+    green: '#2AB481'
   },
   darkTheme: {
     primaryColor: '#2575fc',
@@ -31,7 +31,7 @@ const initialState = {
     pink: '#e699ff',
     darkPink: '#cc00ff',
     blue: '#023997',
-    green: '#2AB481',
+    green: '#2AB481'
   }
 }
 
