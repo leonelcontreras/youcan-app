@@ -68,6 +68,8 @@ const RecoverPasswordView = ({ form, onBack }) => {
         value={values.email}
         onFocus={handleBlur('email')}
         onChangeText={handleChange('email')}
+        keyboardType='email-address'
+        autoCapitalize='none'
         additionalStyles={[marginTop20Class, primaryClass, errors.email && touched.email ? inputErrorClass : null]}
       />
       {
