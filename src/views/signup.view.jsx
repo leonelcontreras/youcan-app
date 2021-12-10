@@ -17,7 +17,6 @@ const SignUpView = ({ form, onNavigateLogin }) => {
     pink,
     darkPink,
     purple,
-    darkPurple,
     lightPurple
   } = useTheme()
 
@@ -35,40 +34,28 @@ const SignUpView = ({ form, onNavigateLogin }) => {
     borderRadius: 300,
     height: 600,
     width: 600,
-    top: -450,
-    right: -180
   }
 
   return (
     <Container>
-      <Gradient
-        locations={[0.5, 0.9]}
-        colors={[darkPink, pink]}
-        style={{
-          ...gradientClass,
-          top: -450,
-          right: -180
-        }}
-      />
-      <Gradient
-        locations={[0.6, 0.9]}
-        colors={[lightPurple, darkPink]}
-        style={{
-          ...gradientClass,
-          top: -420,
-          left: -180,
-          opacity: 0.6,
-        }}
-      />
-      <Gradient
-        locations={[0.5, 0.8, 1]}
-        colors={[darkPink, darkPurple, primaryColor]}
-        style={{
-          ...gradientClass,
-          top: -460,
-          left: -180,
-        }}
-      />
+    <Gradient
+      locations={[0.5, 0.9]}
+      colors={[darkPink, pink]}
+      style={{
+        ...gradientClass,
+        top: -420,
+        right: -180
+      }}
+    />
+    <Gradient
+      locations={[0.1, 0.5]}
+      colors={[lightPurple, primaryColor]}
+      style={{
+        ...gradientClass,
+        bottom: -380,
+        left: -160
+      }}
+    />
       <Image
         style={[marginTop20Class, {
           marginBottom: 50
@@ -79,6 +66,8 @@ const SignUpView = ({ form, onNavigateLogin }) => {
         id='email'
         name='email'
         placeholder={translate('login.email-placeholder')}
+        keyboardType='email-address'
+        autoCapitalize='none'
         value={values.email}
         onFocus={form.handleBlur('email')}
         onChangeText={form.handleChange('email')}
