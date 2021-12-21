@@ -39,34 +39,34 @@ const LoginView = ({ form, onNavigate }) => {
 
   return (
     <Container>
-    <Gradient
-      locations={[0.5, 0.9]}
-      colors={[darkPink, pink]}
-      style={{
-        ...gradientClass,
-        top: -450,
-        right: -180
-      }}
-    />
-    <Gradient
-      locations={[0.6, 0.9]}
-      colors={[lightPurple, darkPink]}
-      style={{
-        ...gradientClass,
-        top: -420,
-        left: -180,
-        opacity: 0.6,
-      }}
-    />
-    <Gradient
-      locations={[0.5, 0.8, 1]}
-      colors={[darkPink, darkPurple, primaryColor]}
-      style={{
-        ...gradientClass,
-        top: -460,
-        left: -180,
-      }}
-    />
+      <Gradient
+        locations={[0.5, 0.9]}
+        colors={[darkPink, pink]}
+        style={{
+          ...gradientClass,
+          top: -450,
+          right: -180
+        }}
+      />
+      <Gradient
+        locations={[0.6, 0.9]}
+        colors={[lightPurple, darkPink]}
+        style={{
+          ...gradientClass,
+          top: -420,
+          left: -180,
+          opacity: 0.6,
+        }}
+      />
+      <Gradient
+        locations={[0.5, 0.8, 1]}
+        colors={[darkPink, darkPurple, primaryColor]}
+        style={{
+          ...gradientClass,
+          top: -460,
+          left: -180,
+        }}
+      />
       <Image
         style={[marginTop20Class, {
           marginBottom: 50
