@@ -1,10 +1,12 @@
 import React from 'react'
-import { Container, Text, Input, Button, Gradient, Image } from '../components'
-import { useTheme, useTranslate } from '../hooks'
+import { View } from 'react-native'
+import { Container, Text, Input, Button, Gradient, Image, Icon } from '../components'
+import { useTheme, useTranslate, useToggle } from '../hooks'
 import icon from '../../assets/logo3.webp'
 
 const LoginView = ({ form, onNavigate }) => {
   const translate = useTranslate()
+  const { toggle, handleToggle } = useToggle()
 
   const {
     values,
@@ -23,6 +25,7 @@ const LoginView = ({ form, onNavigate }) => {
     inputErrorClass,
     marginTop20Class,
     primaryColor,
+    backgroundColor,
     pink,
     darkPink,
     purple,
@@ -35,6 +38,35 @@ const LoginView = ({ form, onNavigate }) => {
     borderRadius: 300,
     height: 600,
     width: 600,
+  }
+
+  const inputContainer = {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor:primaryColor,
+    borderRadius: 15
+  }
+
+  const input = {
+    width: '85%',
+    borderRadius: 0,
+    borderWidth: 0,
+    borderTopLeftRadius: 15,
+    borderRightWidth: 0,
+    borderBottomLeftRadius: 15
+  }
+
+  const iconContainer = {
+    backgroundColor: backgroundColor,
+    width: '15%',
+    borderTopRightRadius: 15,
+    borderBottomRightRadius: 15,
+    paddingVertical: 7,
+    display: 'flex',
+    alignItems: 'center'
   }
 
   return (
@@ -89,16 +121,25 @@ const LoginView = ({ form, onNavigate }) => {
           (<Text text={errors.email} type='error' additionalStyles={[fontColorErrorClass]} />) 
           : null
       }
-      <Input
-        id='password'
-        name='password'
-        placeholder={translate('login.pass-placeholder')}
-        secureTextEntry
-        value={values.password}
-        onFocus={handleBlur('password')}
-        onChangeText={handleChange('password')}
-        additionalStyles={[marginTop20Class, primaryClass, errors.password && touched.password ? inputErrorClass : null]}
-      />
+      <View style={[
+        inputContainer, 
+        marginTop20Class, 
+        errors.password && touched.password ? inputErrorClass : null
+      ]}>
+        <Input
+          id='password'
+          name='password'
+          placeholder={translate('login.pass-placeholder')}
+          secureTextEntry={!toggle}
+          value={values.password}
+          onFocus={handleBlur('password')}
+          onChangeText={handleChange('password')}
+          additionalStyles={[input, primaryClass]}
+        />
+        <View style={iconContainer}>
+          <Icon name={toggle ? 'md-eye-off' : 'md-eye'} size={32} color={primaryColor} onPress={() => handleToggle()}/>
+        </View>
+      </View>
       {
         (errors.password && touched.password) ? 
           (<Text text={errors.password} type='error' additionalStyles={[fontColorErrorClass]}/>) 
