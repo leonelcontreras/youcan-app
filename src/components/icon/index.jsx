@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons'
 
 const Icon = (props) => {
   return (
-    <Ionicons name="md-eye" size={32} color="blue" {...props} />
+    <Ionicons {...props} />
   )
 }
 
