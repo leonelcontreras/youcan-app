@@ -5,7 +5,7 @@ const { LOADING_DATA, LOGIN, LOGOUT } = ACCESS
 const initialState = {
   loading: true,
   isSigned: false,
-  token: ''
+  user: {}
 }
 
 const accessReducer = (state = initialState, action) => {

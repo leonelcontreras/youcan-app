@@ -1,6 +1,7 @@
 import React from 'react'
-import { NavigationProvider, StateProvider, SecureAreaProvider, LocaleProvider } from './src/providers'
+import { NavigationProvider, StateProvider, SecureAreaProvider, LocaleProvider, AuthProvider } from './src/providers'
 
+AuthProvider()
 LocaleProvider()
 
 export default () => (
