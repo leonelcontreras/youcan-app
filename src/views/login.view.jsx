@@ -4,7 +4,7 @@ import { Container, Text, Input, Button, Gradient, Image, Icon } from '../compon
 import { useTheme, useTranslate, useToggle } from '../hooks'
 import icon from '../../assets/logo3.webp'
 
-const LoginView = ({ form, onNavigate }) => {
+const LoginView = ({ form, invalidUser, onNavigate }) => {
   const translate = useTranslate()
   const { toggle, handleToggle } = useToggle()
 
@@ -144,6 +144,9 @@ const LoginView = ({ form, onNavigate }) => {
         (errors.password && touched.password) ? 
           (<Text text={errors.password} type='error' additionalStyles={[fontColorErrorClass]}/>) 
           : null
+      }
+      {
+        invalidUser && <Text text='Invalid email or password' />
       }
       <Text
         additionalStyles={[marginTop20Class, primaryClass]}
