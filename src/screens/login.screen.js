@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { ACCESS } from '../states/action-types'
 import { useForm, useNavigate } from '../hooks'
@@ -37,6 +37,12 @@ const LoginScreen = () => {
     validationSchema: loginSchema,
     onSubmit: handleOnSubmit
   })
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (invalidUser) setInvalidUser(false)
+    }, 3000)
+  }, [invalidUser])
 
   return (
     <LoginView

@@ -114,7 +114,11 @@ const LoginView = ({ form, invalidUser, onNavigate }) => {
         value={values.email}
         onFocus={form.handleBlur('email')}
         onChangeText={form.handleChange('email')}
-        additionalStyles={[marginTop20Class, primaryClass, errors.email && touched.email ? inputErrorClass : null]}
+        additionalStyles={[
+          marginTop20Class, 
+          primaryClass, 
+          (errors.email || invalidUser) && touched.email ? inputErrorClass : null
+        ]}
       />
       {
         (errors.email && touched.email) ? 
@@ -124,7 +128,7 @@ const LoginView = ({ form, invalidUser, onNavigate }) => {
       <View style={[
         inputContainer, 
         marginTop20Class, 
-        errors.password && touched.password ? inputErrorClass : null
+        (errors.password || invalidUser) && touched.password ? inputErrorClass : null
       ]}>
         <Input
           id='password'
@@ -134,7 +138,11 @@ const LoginView = ({ form, invalidUser, onNavigate }) => {
           value={values.password}
           onFocus={handleBlur('password')}
           onChangeText={handleChange('password')}
-          additionalStyles={[input, primaryClass]}
+          additionalStyles={[
+            input,
+            primaryClass,
+            (errors.password || invalidUser) && touched.password ? inputErrorClass : null
+          ]}
         />
         <View style={iconContainer}>
           <Icon name={toggle ? 'md-eye-off' : 'md-eye'} size={32} color={primaryColor} onPress={() => handleToggle()}/>
@@ -146,7 +154,7 @@ const LoginView = ({ form, invalidUser, onNavigate }) => {
           : null
       }
       {
-        invalidUser && <Text text='Invalid email or password' />
+        invalidUser && <Text text='Invalid email or password' type='error' additionalStyles={[fontColorErrorClass]}/>
       }
       <Text
         additionalStyles={[marginTop20Class, primaryClass]}
