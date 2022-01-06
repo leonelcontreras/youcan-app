@@ -8,7 +8,7 @@ import { LoginView } from '../views'
 
 const LoginScreen = () => {
   const dispatch = useDispatch()
-  const [ invalidUser, setInvalidUser ] = useState(false)
+  const [invalidUser, setInvalidUser] = useState(false)
   const { navigate } = useNavigate()
   const authentication = AuthenticationService()
   const { LOGIN } = ACCESS
@@ -16,13 +16,15 @@ const LoginScreen = () => {
   const handleOnSubmit = async (values) => {
     const { email, password } = values
     const response = await authentication.login(email, password)
-    return (response.user) ? dispatch({
-      type: LOGIN,
-      payload: {
-        user: response,
-        isSigned: true
-      }
-    }) : setInvalidUser(true)
+    return (response.user)
+      ? dispatch({
+        type: LOGIN,
+        payload: {
+          user: response,
+          isSigned: true
+        }
+      })
+      : setInvalidUser(true)
   }
 
   const onNavigate = (screen) => navigate(screen)
