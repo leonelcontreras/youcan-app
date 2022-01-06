@@ -23,7 +23,6 @@ const NavigationProvider = () => {
   // const validToken = false
 
   // if (loading) return <SplashScreen />
-  console.log('isSigned -->', isSigned)
   return (
     <NavigationContainer>
       <Navigator initialRouteName='Login'>
